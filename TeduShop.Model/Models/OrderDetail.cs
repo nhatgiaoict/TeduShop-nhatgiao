@@ -9,16 +9,16 @@ namespace TeduShop.Model.Models
         [Key]
         public int OrderID { set; get; }
 
+        [Key]
+        public int ProuctID { set; get; }
+            
+        [Required]
+        public int Quantity { set; get; }
+
         [ForeignKey("OrderID")]
         public virtual Order Orders { set; get; }
 
-        [Key]
-        public int ProuctID { set; get; }
-
         [ForeignKey("ProductID")]
         public virtual Product Products { set; get; }
-
-        [Required]
-        public int Quantity { set; get; }
     }
 }

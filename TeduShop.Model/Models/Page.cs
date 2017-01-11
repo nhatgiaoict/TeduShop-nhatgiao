@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using TeduShop.Model.Abstract;
 
 namespace TeduShop.Model.Models
 {
     [Table("Pages")]
-    public class Page
+    public class Page : Auditable
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -13,21 +14,16 @@ namespace TeduShop.Model.Models
         [Column(TypeName = "nvarchar")]
         [MaxLength(250)]
         [Required]
-        public string Name { set; get; }
+        public string Title { set; get; }
+
+        [Column(TypeName = "varchar")]
+        [MaxLength(250)]
+        [Required]
+        public string ShortLink { set; get; }
 
         [Column(TypeName = "nvarchar")]
         [Required]
         public string Content { set; get; }
 
-        [Column(TypeName = "nvarchar")]
-        [MaxLength(250)]
-        public string MetaKeyword { set; get; }
-
-        [Column(TypeName = "nvarchar")]
-        [MaxLength(250)]
-        public string MetaDescription { set; get; }
-
-        [Required]
-        public bool Status { set; get; }
     }
 }

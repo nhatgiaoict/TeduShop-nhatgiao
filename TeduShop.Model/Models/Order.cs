@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using TeduShop.Model.Abstract;
 
 namespace TeduShop.Model.Models
 {
     [Table("Orders")]
-    public class Order : Auditable
+    public class Order
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -45,6 +44,9 @@ namespace TeduShop.Model.Models
         [MaxLength(50)]
         [Required]
         public string PaymentStatus { set; get; }
+
+        [Required]
+        public bool Status { set; get; }
 
         public virtual IEnumerable<OrderDetail> OrderDetails { set; get; }
     }
