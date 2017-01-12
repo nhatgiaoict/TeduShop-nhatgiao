@@ -33,7 +33,8 @@ namespace TeduShop.Model.Models
         [MaxLength(500)]
         public string Fimages { set; get; }
 
-        public XElement MoreImages { set; get; }
+        [Column(TypeName ="xml")]
+        public string MoreImages { set; get; }
 
         public decimal? Price { set; get; }
 
@@ -53,8 +54,6 @@ namespace TeduShop.Model.Models
         public bool? HotFlag { set; get; }
 
         public int? ViewCount { set; get; }
-
-        public virtual IEnumerable<ProductTag> ProductTags { set; get; }
 
         public virtual IEnumerable<OrderDetail> OrderDetails { set; get; }
     }
