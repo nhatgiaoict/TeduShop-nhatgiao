@@ -42,7 +42,7 @@ namespace TeduShop.Data.Migrations
                 .Index(t => t.GroupID);
             
             CreateTable(
-                "dbo.NewCategories",
+                "dbo.NewsCategories",
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
@@ -83,11 +83,11 @@ namespace TeduShop.Data.Migrations
                         Status = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.NewCategories", t => t.CategoryID, cascadeDelete: true)
+                .ForeignKey("dbo.NewsCategories", t => t.CategoryID, cascadeDelete: true)
                 .Index(t => t.CategoryID);
             
             CreateTable(
-                "dbo.NewTags",
+                "dbo.NewsTags",
                 c => new
                     {
                         NewID = c.Int(nullable: false),
@@ -281,17 +281,17 @@ namespace TeduShop.Data.Migrations
             DropForeignKey("dbo.OrderDetails", "ProductID", "dbo.Products");
             DropForeignKey("dbo.Products", "CategoryID", "dbo.ProductCategories");
             DropForeignKey("dbo.OrderDetails", "OrderID", "dbo.Orders");
-            DropForeignKey("dbo.NewTags", "TagsID", "dbo.Tags");
-            DropForeignKey("dbo.NewTags", "NewID", "dbo.News");
-            DropForeignKey("dbo.News", "CategoryID", "dbo.NewCategories");
+            DropForeignKey("dbo.NewsTags", "TagsID", "dbo.Tags");
+            DropForeignKey("dbo.NewsTags", "NewID", "dbo.News");
+            DropForeignKey("dbo.News", "CategoryID", "dbo.NewsCategories");
             DropForeignKey("dbo.Menus", "GroupID", "dbo.MenuGroups");
             DropIndex("dbo.ProductTags", new[] { "TagID" });
             DropIndex("dbo.ProductTags", new[] { "ProductID" });
             DropIndex("dbo.Products", new[] { "CategoryID" });
             DropIndex("dbo.OrderDetails", new[] { "ProductID" });
             DropIndex("dbo.OrderDetails", new[] { "OrderID" });
-            DropIndex("dbo.NewTags", new[] { "TagsID" });
-            DropIndex("dbo.NewTags", new[] { "NewID" });
+            DropIndex("dbo.NewsTags", new[] { "TagsID" });
+            DropIndex("dbo.NewsTags", new[] { "NewID" });
             DropIndex("dbo.News", new[] { "CategoryID" });
             DropIndex("dbo.Menus", new[] { "GroupID" });
             DropTable("dbo.VisitorStatistics");
@@ -305,9 +305,9 @@ namespace TeduShop.Data.Migrations
             DropTable("dbo.Orders");
             DropTable("dbo.OrderDetails");
             DropTable("dbo.Tags");
-            DropTable("dbo.NewTags");
+            DropTable("dbo.NewsTags");
             DropTable("dbo.News");
-            DropTable("dbo.NewCategories");
+            DropTable("dbo.NewsCategories");
             DropTable("dbo.Menus");
             DropTable("dbo.MenuGroups");
             DropTable("dbo.Footers");

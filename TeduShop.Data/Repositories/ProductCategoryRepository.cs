@@ -5,7 +5,7 @@ using TeduShop.Model.Models;
 
 namespace TeduShop.Data.Repositories
 {
-    public interface IProductCategoriesRepository
+    public interface IProductCategoriesRepository : IRepository<ProductCategories>
     {
         IEnumerable<ProductCategories> GetByShortLink(string shortlink);
     }

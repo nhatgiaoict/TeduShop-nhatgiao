@@ -3,15 +3,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TeduShop.Model.Models
 {
-    [Table("NewTags")]
-    public class NewTag
+    [Table("NewsTags")]
+    public class NewsTag
     {
         [Key]
         [Column(Order=1)]
         public int NewID { set; get; }
 
         [ForeignKey("NewID")]
-        public virtual New News { set; get; }
+        public virtual News News { set; get; }
 
         [Key]
         [Column(TypeName ="varchar", Order =2)]

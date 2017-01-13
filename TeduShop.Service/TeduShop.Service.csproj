@@ -40,7 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MenuGroupService.cs" />
+    <Compile Include="MenuService.cs" />
+    <Compile Include="NewsCategoryService.cs" />
+    <Compile Include="NewsService.cs" />
+    <Compile Include="OrderService.cs" />
+    <Compile Include="ProductCategoriesService.cs" />
+    <Compile Include="ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SlideService.cs" />
+    <Compile Include="SupportOnlineService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TeduShop.Common\TeduShop.Common.csproj">

@@ -1,12 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using TeduShop.Model.Abstract;
-using System.Collections.Generic;
 
 namespace TeduShop.Model.Models
 {
-    [Table("NewCategories")]
-    public class NewCategory : Auditable
+    [Table("News")]
+    public class News : Auditable
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -22,9 +22,11 @@ namespace TeduShop.Model.Models
         [Required]
         public string ShortLink { set; get; }
 
-        public int? ParentID { set; get; }
+        [Required]
+        public int CategoryID { set; get; }
 
-        public int? Idx { set; get; }
+        [ForeignKey("CategoryID")]
+        public virtual NewsCategory NewsCategories { set; get; }
 
         [Column(TypeName = "nvarchar")]
         [MaxLength(500)]
@@ -34,8 +36,8 @@ namespace TeduShop.Model.Models
         [MaxLength(250)]
         public string Summary { set; get; }
 
-        public bool? HomeFlag { set; get; }
+        public string Content { set; get; }
 
-        public virtual IEnumerable<New> News { set; get; }
+        public virtual IEnumerable<NewsTag> NewsTags { set; get; }
     }
 }

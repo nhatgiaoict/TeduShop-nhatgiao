@@ -54,9 +54,9 @@
     <Compile Include="Models\Footer.cs" />
     <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\MenuGroup.cs" />
-    <Compile Include="Models\New.cs" />
-    <Compile Include="Models\NewCategory.cs" />
-    <Compile Include="Models\NewTag.cs" />
+    <Compile Include="Models\News.cs" />
+    <Compile Include="Models\NewsCategory.cs" />
+    <Compile Include="Models\NewsTag.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Page.cs" />

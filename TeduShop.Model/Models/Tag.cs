@@ -20,7 +20,7 @@ namespace TeduShop.Model.Models
         [MaxLength(50)]
         public string Type { set; get; }
 
-        public virtual IEnumerable<NewTag> NewTags { set; get; }
+        public virtual IEnumerable<NewsTag> NewTags { set; get; }
 
         public virtual IEnumerable<ProductTag> ProductTags { set; get; }
     }
