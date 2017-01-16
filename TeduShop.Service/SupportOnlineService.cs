@@ -13,7 +13,7 @@ namespace TeduShop.Service
     {
         void Add(SupportOnline supportOnline);
         void Update(SupportOnline supportOnline);
-        void Delete(SupportOnline supportOnline);
+        void Delete(int id);
         SupportOnline GetById(int id);
         IEnumerable<SupportOnline> GetAll();
         IEnumerable<SupportOnline> GetAllPaging(int page, int pagesize, out int totalRow);

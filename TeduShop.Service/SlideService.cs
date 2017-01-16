@@ -13,7 +13,7 @@ namespace TeduShop.Service
     {
         void Add(Slide slide);
         void Update(Slide slide);
-        void Delete(Slide slide);
+        void Delete(int id);
         Slide GetById(int id);
         IEnumerable<Slide> GetAll();
         IEnumerable<Slide> GetAllPaging(int page, int pageseze, out int totalRow);

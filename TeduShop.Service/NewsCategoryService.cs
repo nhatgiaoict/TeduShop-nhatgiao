@@ -8,17 +8,18 @@ namespace TeduShop.Service
 {
     public interface INewsCategoryService
     {
-        void Add(NewsCategory newsCategories);
+        NewsCategory Add(NewsCategory newsCategory);
 
-        void Update(NewsCategory newsCategories);
+        void Update(NewsCategory newsCategory);
 
-        void Delete(int id);
+        NewsCategory Delete(int id);
 
         NewsCategory GetById(int id);
 
         IEnumerable<NewsCategory> GetAll();
 
         IEnumerable<NewsCategory> GetAllByParentId(int parentId);
+
 
         void SaveChange();
     }
@@ -34,14 +35,14 @@ namespace TeduShop.Service
             this._unitofwork = unitofwork;
         }
 
-        public void Add(NewsCategory newsCategories)
+        public NewsCategory Add(NewsCategory newsCategory)
         {
-            _newsCategoryRepository.Add(newsCategories);
+            return _newsCategoryRepository.Add(newsCategory);
         }
 
-        public void Delete(int id)
+        public NewsCategory Delete(int id)
         {
-            _newsCategoryRepository.Delete(id);
+            return _newsCategoryRepository.Delete(id);
         }
 
         public IEnumerable<NewsCategory> GetAll()
@@ -64,9 +65,9 @@ namespace TeduShop.Service
             _unitofwork.Commit();
         }
 
-        public void Update(NewsCategory newsCategories)
+        public void Update(NewsCategory newsCategory)
         {
-            _newsCategoryRepository.Update(newsCategories);
+            _newsCategoryRepository.Update(newsCategory);
         }
     }
 }
