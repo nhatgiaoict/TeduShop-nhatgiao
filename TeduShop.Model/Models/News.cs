@@ -38,6 +38,12 @@ namespace TeduShop.Model.Models
 
         public string Content { set; get; }
 
+        public bool? HomeFlag { set; get; }
+
+        public bool? HotFlag { set; get; }
+
+        public int? ViewCount { set; get; }
+
         public virtual IEnumerable<NewsTag> NewsTags { set; get; }
     }
 }

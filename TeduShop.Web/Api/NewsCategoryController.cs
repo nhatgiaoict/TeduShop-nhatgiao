@@ -1,18 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using AutoMapper;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using TeduShop.Model.Models;
 using TeduShop.Service;
 using TeduShop.Web.Infrastructure.Core;
+using TeduShop.Web.Models;
+using TeduShop.Web.Infrastructure.Extensions;
 
 namespace TeduShop.Web.Api
 {
     [RoutePrefix("api/newscategory")]
     public class NewsCategoryController : ApiControllerBase
     {
-        INewsCategoryService _newsCategoryService;
-        public NewsCategoryController(IErrorService errorService, INewsCategoryService newsCategoryService):
+        private INewsCategoryService _newsCategoryService;
+
+        public NewsCategoryController(IErrorService errorService, INewsCategoryService newsCategoryService) :
             base(errorService)
         {
             this._newsCategoryService = newsCategoryService;
@@ -23,37 +27,26 @@ namespace TeduShop.Web.Api
         {
             return CreateHttpResponse(request, () =>
             {
-                
-                    var ListCategory = _newsCategoryService.GetAll();
+                var listCategory = _newsCategoryService.GetAll();
+                var lisNewsCategoryVm = Mapper.Map<List<NewsCategoryViewModel>>(listCategory);
 
-                   HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, ListCategory);
+                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, lisNewsCategoryVm);
 
-              
                 return response;
-
-                //HttpResponseMessage response = null;
-                //if (ModelState.IsValid)
-                //{
-                //    var ListCategory = _newsCategoryService.GetAll();
-
-                //    response = request.CreateResponse(HttpStatusCode.OK, ListCategory);
-                //}
-                //else
-                //{
-                //    request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-                //}
-                //return response;
             });
         }
 
-        public HttpResponseMessage Post(HttpRequestMessage request, NewsCategory newsCategory)
+        [Route("add")]
+        public HttpResponseMessage Post(HttpRequestMessage request, NewsCategoryViewModel newsCategoryVm)
         {
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
                 if (ModelState.IsValid)
                 {
-                    var category = _newsCategoryService.Add(newsCategory);
+                    NewsCategory sNewsCategory = new NewsCategory();
+                    sNewsCategory.UpdateNewsCategory(newsCategoryVm);
+                    var category = _newsCategoryService.Add(sNewsCategory);
                     _newsCategoryService.SaveChange();
 
                     response = request.CreateResponse(HttpStatusCode.Created, category);
@@ -66,14 +59,17 @@ namespace TeduShop.Web.Api
             });
         }
 
-        public HttpResponseMessage Put(HttpRequestMessage request, NewsCategory newsCategory)
+        [Route("update")]
+        public HttpResponseMessage Put(HttpRequestMessage request, NewsCategoryViewModel newsCategoryVm)
         {
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
                 if (ModelState.IsValid)
                 {
-                    _newsCategoryService.Update(newsCategory);
+                    var newsCategoryDb = _newsCategoryService.GetById(newsCategoryVm.ID);
+                    newsCategoryDb.UpdateNewsCategory(newsCategoryVm);
+                    _newsCategoryService.Update(newsCategoryDb);
                     _newsCategoryService.SaveChange();
 
                     response = request.CreateResponse(HttpStatusCode.OK);
@@ -106,5 +102,4 @@ namespace TeduShop.Web.Api
             });
         }
     }
-
 }
