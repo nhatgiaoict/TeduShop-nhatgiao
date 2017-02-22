@@ -21,7 +21,7 @@ namespace TeduShop.Data
         public DbSet<NewsCategory> NewCategories { set; get; }
         public DbSet<NewsTag> NewTags { set; get; }
         public DbSet<Product> Products { set; get; }
-        public DbSet<ProductCategories> ProductCategories { set; get; }
+        public DbSet<ProductCategory> ProductCategories { set; get; }
 
         public DbSet<ProductTag> ProductTags { set; get; }
         public DbSet<Slide> Slide { set; get; }

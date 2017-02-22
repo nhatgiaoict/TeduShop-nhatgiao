@@ -15,7 +15,7 @@ namespace TeduShop.Web.Models
 
         public int CategoryID { set; get; }
 
-        public virtual ProductCategoriesViewModel ProductCategories { set; get; }
+        public virtual ProductCategoryViewModel ProductCategories { set; get; }
 
         public string Fimages { set; get; }
 
@@ -50,6 +50,8 @@ namespace TeduShop.Web.Models
         public string UpdateBy { set; get; }
 
         public bool Status { set; get; }
+
+        public string Tags { set; get; }
 
     }
 }

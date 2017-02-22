@@ -5,19 +5,19 @@ using TeduShop.Model.Models;
 
 namespace TeduShop.Data.Repositories
 {
-    public interface IProductCategoriesRepository : IRepository<ProductCategories>
+    public interface IProductCategoryRepository : IRepository<ProductCategory>
     {
-        IEnumerable<ProductCategories> GetByShortLink(string shortlink);
+        IEnumerable<ProductCategory> GetByShortLink(string shortlink);
     }
 
-    public class ProductCategoriesRepository : RepositoryBase<ProductCategories>, IProductCategoriesRepository
+    public class ProductCategoryRepository : RepositoryBase<ProductCategory>, IProductCategoryRepository
     {
-        public ProductCategoriesRepository(IDbFactory dbFactory)
+        public ProductCategoryRepository(IDbFactory dbFactory)
             : base(dbFactory)
         {
         }
 
-        public IEnumerable<ProductCategories> GetByShortLink(string shortlink)
+        public IEnumerable<ProductCategory> GetByShortLink(string shortlink)
         {
             return this.DbContext.ProductCategories.Where(x => x.ShortLink == shortlink);
         }

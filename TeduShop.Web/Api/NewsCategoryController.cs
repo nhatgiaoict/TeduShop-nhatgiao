@@ -12,6 +12,7 @@ using TeduShop.Web.Infrastructure.Extensions;
 namespace TeduShop.Web.Api
 {
     [RoutePrefix("api/newscategory")]
+    [Authorize]
     public class NewsCategoryController : ApiControllerBase
     {
         private INewsCategoryService _newsCategoryService;

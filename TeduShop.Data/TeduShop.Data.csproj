@@ -84,6 +84,14 @@
     <Compile Include="Migrations\201701170424532_Changekey.Designer.cs">
       <DependentUpon>201701170424532_Changekey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702160450509_AddTagsField.cs" />
+    <Compile Include="Migrations\201702160450509_AddTagsField.Designer.cs">
+      <DependentUpon>201702160450509_AddTagsField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702211917599_changeProductCategoriesToProductCategory.cs" />
+    <Compile Include="Migrations\201702211917599_changeProductCategoriesToProductCategory.Designer.cs">
+      <DependentUpon>201702211917599_changeProductCategoriesToProductCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ErrorRepository.cs" />
@@ -135,6 +143,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701170424532_Changekey.resx">
       <DependentUpon>201701170424532_Changekey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702160450509_AddTagsField.resx">
+      <DependentUpon>201702160450509_AddTagsField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702211917599_changeProductCategoriesToProductCategory.resx">
+      <DependentUpon>201702211917599_changeProductCategoriesToProductCategory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

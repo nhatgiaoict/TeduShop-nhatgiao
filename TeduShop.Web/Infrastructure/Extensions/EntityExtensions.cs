@@ -24,6 +24,25 @@ namespace TeduShop.Web.Infrastructure.Extensions
             newsCategory.Status = newsCategoryVm.Status;
         }
 
+        public static void UpdateProductCategory(this ProductCategory productCategories, ProductCategoryViewModel productCategoriesVm)
+        {
+            productCategories.ID = productCategoriesVm.ID;
+            productCategories.Title = productCategoriesVm.Title;
+            productCategories.ShortLink = productCategoriesVm.ShortLink;
+            productCategories.ParentID = productCategoriesVm.ParentID;
+            productCategories.Idx = productCategoriesVm.Idx;
+            productCategories.Fimages = productCategoriesVm.Fimages;
+            productCategories.Summary = productCategoriesVm.Summary;
+            productCategories.HomeFlag = productCategoriesVm.HomeFlag;
+            productCategories.MetaKeyword = productCategoriesVm.MetaKeyword;
+            productCategories.MetaDescription = productCategoriesVm.MetaDescription;
+            productCategories.CreatedDate = productCategoriesVm.CreatedDate;
+            productCategories.Createdby = productCategoriesVm.Createdby;
+            productCategories.UpdateDate = productCategoriesVm.UpdateDate;
+            productCategories.UpdateBy = productCategoriesVm.UpdateBy;
+            productCategories.Status = productCategoriesVm.Status;
+        }
+
         public static void UpdateNews(this News news, NewsViewModel newsVm)
         {
             news.ID = newsVm.ID;
@@ -43,6 +62,31 @@ namespace TeduShop.Web.Infrastructure.Extensions
             news.UpdateDate = newsVm.UpdateDate;
             news.UpdateBy = newsVm.UpdateBy;
             news.Status = newsVm.Status;
+        }
+
+        public static void UpdateProduct(this Product product, ProductViewModel productVm)
+        {
+            product.ID = productVm.ID;
+            product.Title = productVm.Title;
+            product.ShortLink = productVm.ShortLink;
+            product.CategoryID = productVm.CategoryID;
+            product.Fimages = productVm.Fimages;
+            product.MoreImages = productVm.MoreImages;
+            product.Price = productVm.Price;
+            product.PromotionPrice = productVm.PromotionPrice;
+            product.Warranty = productVm.Warranty;
+            product.Summary = productVm.Summary;
+            product.Content = productVm.Content;
+            product.HomeFlag = productVm.HomeFlag;
+            product.HotFlag = productVm.HotFlag;
+            product.MetaKeyword = productVm.MetaKeyword;
+            product.MetaDescription = productVm.MetaDescription;
+            product.CreatedDate = productVm.CreatedDate;
+            product.Createdby = productVm.Createdby;
+            product.UpdateDate = productVm.UpdateDate;
+            product.UpdateBy = productVm.UpdateBy;
+            product.Status = productVm.Status;
+            product.Tags = productVm.Tags;
         }
     }
 }

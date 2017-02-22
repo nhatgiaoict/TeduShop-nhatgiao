@@ -56,11 +56,11 @@ namespace TeduShop.Web.Api
         [HttpPost]
         [AllowAnonymous]
         [Route("login")]
-        public async Task<HttpResponseMessage> Login(HttpRequestMessage reques, string username, string password, bool rememberMe)
+        public async Task<HttpResponseMessage> Login(HttpRequestMessage request, string username, string password, bool rememberMe)
         {
             if (!ModelState.IsValid)
             {
-                return reques.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                return request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
             }
 
             // This doesn't count login failures towards account lockout

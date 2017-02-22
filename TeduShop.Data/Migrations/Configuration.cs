@@ -58,12 +58,12 @@
         {
             if (context.ProductCategories.Count() == 0)
             {
-                List<ProductCategories> listProductCategories = new List<ProductCategories>()
+                List<ProductCategory> listProductCategories = new List<ProductCategory>()
             {
-                new ProductCategories() {Title="Điện lạnh", ShortLink="dien-lanh", Status=true },
-                new ProductCategories() {Title="Viễn thông", ShortLink="vien-thong", Status=true },
-                new ProductCategories() {Title="Đồ gia dụng", ShortLink="do-gia-dung", Status=true },
-                new ProductCategories() {Title="Mỹ phẩm", ShortLink="my-pham", Status=true }
+                new ProductCategory() {Title="Điện lạnh", ShortLink="dien-lanh", Status=true },
+                new ProductCategory() {Title="Viễn thông", ShortLink="vien-thong", Status=true },
+                new ProductCategory() {Title="Đồ gia dụng", ShortLink="do-gia-dung", Status=true },
+                new ProductCategory() {Title="Mỹ phẩm", ShortLink="my-pham", Status=true }
             };
                 context.ProductCategories.AddRange(listProductCategories);
                 context.SaveChanges();

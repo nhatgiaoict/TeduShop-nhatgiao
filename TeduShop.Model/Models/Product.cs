@@ -27,7 +27,7 @@ namespace TeduShop.Model.Models
         public int CategoryID { set; get; }
 
         [ForeignKey("CategoryID")]
-        public virtual ProductCategories ProductCategories { set; get; }
+        public virtual ProductCategory ProductCategories { set; get; }
 
         [Column(TypeName = "nvarchar")]
         [MaxLength(500)]
@@ -54,6 +54,8 @@ namespace TeduShop.Model.Models
         public bool? HotFlag { set; get; }
 
         public int? ViewCount { set; get; }
+
+        public string Tags { set; get; }
 
         public virtual IEnumerable<OrderDetail> OrderDetails { set; get; }
     }
